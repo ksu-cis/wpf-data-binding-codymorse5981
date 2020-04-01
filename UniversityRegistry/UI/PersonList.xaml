@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UniversityRegistry.UI"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="400">
+             d:DesignHeight="450" d:DesignWidth="550">
     <Border Padding="10">
         <Grid>
             <Grid.RowDefinitions>
@@ -16,7 +16,36 @@
 
             <TextBlock FontSize="18">University Directory</TextBlock>
 
-            <ListView Grid.Row="1"/>
+            <ListView Grid.Row="1" ItemsSource="{Binding}" SelectionChanged="OnSelectionChanged" SelectionMode="Single" HorizontalContentAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="115"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left">
+                                <Label Content="First Name:" Grid.Column="0"  VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Path=FirstName}"  VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" >
+                                <Label Content="Last Name:" Grid.Column="1"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Path=LastName}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Grid.Column="2">
+                                <Label Content="ID:" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Path=ID}"  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                            </StackPanel>
+                           
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
             <Button Grid.Row="2">Add New Person</Button>
         </Grid>

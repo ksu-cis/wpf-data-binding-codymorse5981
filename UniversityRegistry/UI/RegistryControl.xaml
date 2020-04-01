@@ -5,13 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UniversityRegistry.UI"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <local:PersonList Grid.Column="0"/>
-        <local:PersonControl Grid.Column="1"/>
+        <local:PersonList Grid.Column="0" SelectionChanged="OnSelectionChanged"/>
+        <local:PersonControl x:Name="pcDetails" Grid.Column="1"/>
     </Grid>
 </UserControl>
